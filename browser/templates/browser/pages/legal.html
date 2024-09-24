@@ -1,0 +1,58 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal</title>
+    <link type="text/css" href="{% static 'styles/style.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'styles/detail.css' %}" rel="stylesheet" />
+    <link type="image/x-icon" href="{% static 'img/est.ico' %}" rel="icon" />
+
+</head>
+<body>
+    
+    <div id="header">
+
+        <div class="header-wrap">
+            <a href="{% url 'browser:index' %}">
+                <div class="site-id">
+                    <img src="{% static '/img/back.svg' %}" />
+                </div>
+            </a>
+        </div>
+        
+    </div>
+
+    <div class="header-pad"></div>
+
+    <div class="main">
+
+        <h2>Terms and Conditions</h2>
+        <div class="site-id">
+            <img src="{% static 'img/est.svg' %}" title="Khalid Kitchen™"/>
+        </div>
+        <h5>This Software and Logo is a Trademark™ of Akintola Technologies all rights reserved &copy <span class="year">202 </span> </h5>
+
+        <p>
+            Welcome to Khalid Kitchen™ A User Centered App to provide you with seamless ordering experience,
+            The Platform is owned and operated by Akintola Technologies, herein referred to as "we," "us," or "our."
+            By accessing or using our app, you agree to comply with and be bound by the following terms and conditions ("Terms").
+            Please read these Terms carefully before using our Platform.
+        </p>
+        {% for term in terms %}
+
+        <div class="section-header">
+            <h3>{{ forloop.counter }}.{{term.title}}</h3>
+        </div>
+
+        <p>
+          {{term.content}}
+        </p>
+        {% endfor %}
+
+    </div>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

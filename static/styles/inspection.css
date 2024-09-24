@@ -1,0 +1,27 @@
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    height: 44px;
+    /* margin: 12px auto; */
+    margin-bottom: 12px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.164);
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    /* margin: 12px auto; */
+    margin-bottom: 12px;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.164);
+
+}
+
+.agreement {
+    margin-bottom: 20px;
+}

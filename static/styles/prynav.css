@@ -1,0 +1,130 @@
+
+/* SVG Styling */
+.st0{
+    fill:#4409bb;
+    /* transform: rotate(45deg); */
+}
+
+
+/* Ham Nav Animation */
+.bar1.active {
+  transform: translateY(0.3rem) rotate(45deg);
+  transform-origin: 50% 50%;
+
+}
+.bar2.active {
+  opacity: 0;
+}
+.bar3.active {
+  transform: translateY(-0.4rem) rotate(-45deg);
+  transform-origin: 50% 50%;
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--pry-color);
+}
+
+.site-id {
+    width: 40px;
+}
+
+.site-id img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.pry-nav {
+    width: 100vh;
+    height: 100vh;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+    /* display: none; */
+    position: absolute;
+    top: 72px;
+    left: 200px;
+    background-color: whitesmoke;
+    opacity: 0;
+    display: none;
+    /* z-index:0; */
+    /* transition: all 0.5s cubic-bezier(0.77,0.2,0.05,1.0); */
+}
+
+.pry-nav.open {
+    width: 100%;
+    opacity: 1;
+    left: 0px;
+    display: block;
+    /* display: block; */
+    transition: all 0.5s ease;
+
+}
+
+.pry-nav ul {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    text-align: left;
+}
+
+.pry-nav ul li{
+    padding: 15px;
+    /* height: 30px; */
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid rebeccapurple;
+
+}
+
+.back-drop {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: none;
+}
+
+/* for large screens */
+@media screen and (min-width: 760px){
+
+    .nav {
+        display: none;
+    }
+
+    .pry-nav {
+        width: 50%;
+        /* width: 600px; */
+        height: fit-content;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgba(255, 255, 255, 0);
+        position: static;
+        opacity: 1;
+    }
+
+    .pry-nav ul {
+       flex-direction: row;
+       align-items: center;
+
+    }
+
+    .pry-nav ul li {
+        border: none;
+    }
+
+}
+
+
+
+
+
+

@@ -1,0 +1,186 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <link type="text/css" href="{% static 'styles/style.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'styles/detail.css' %}" rel="stylesheet" />
+    <link type="image/x-icon" href="{% static 'img/est.ico' %}" rel="icon" />
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the button element
+            var addEstateButton = document.getElementById("add-estate");
+
+            // Check if the button element exists
+            if (addEstateButton) {
+                // Add a click event listener to the button
+                addEstateButton.addEventListener("click", function() {
+                    // Get the estate ID from your server-side rendering (replace with your actual logic)
+                    var estateIdObj = '{{ estate.id }}';
+
+                    // Store the estate ID in the localStorage with the key "EstateId"
+                    localStorage.setItem("EstateId", estateIdObj);
+
+                    // Log a message to the console
+                    console.log("Clicked");
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    
+    <div id="header">
+
+        <div class="header-wrap">
+            <a href="{% url 'browser:index' %}">
+                <div class="site-id">
+                    <img src="{% static '/img/back.svg' %}" />
+                </div>
+            </a>
+        </div>
+        
+    </div>
+
+    <div class="header-pad"></div>
+
+    <div class="main desk-comp">
+
+        <div class="section-header">
+<!--            <h2>In Pictures</h2>-->
+        </div>
+
+        <!-- container component -->
+        <div class="container detail">
+
+            <div class="item">
+                <div class="item-img-box">
+                    <img src="{{ estate.img.url }}" />
+                </div>   
+            </div>
+
+            <div class="item">
+                <div class="item-img-box">
+                    <img src="{{ estate.img2.url }}" />
+                </div>
+                
+            </div>
+
+            <div class="item">
+                <div class="item-img-box">
+                    <img src="{{ estate.img3.url }}" />
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-img-box">
+                    <img src="{{ estate.img4.url }}" />
+                </div>
+            </div>
+        </div>
+
+        <div class="item-detail">
+            <div class="desc">
+                <div class="icntext-container">
+                    <div class="icn-img">
+                        <img src="{% static '/img/villa.svg' %}" />
+                    </div>
+                    <div class="icn-text">
+                        <h3>{{ estate.title }}</h3>
+                    </div>
+                </div>
+                <div class="icn2">
+
+                    <div class="icntext-container left">
+                        <div class="icn-img">
+                            <img src="{% static '/img/location.svg' %}" />
+                        </div>
+                        <div class="icn-text">
+                            <p>{{ estate.area }}</p>
+                        </div>
+                    </div>
+
+                    <div class="icntext-container">
+                        <div class="icn-img" style="margin: 0px;">
+                            <img src="{% static 'img/pay.svg' %}" />
+                        </div>
+                        <div class="icn-text">
+                            <p class="formatted-price">{{ estate.total_price }}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+<!--            <button class="itm-btn">Copy</button>-->
+        </div>
+
+        <div class="section-header">
+            <h2>Description</h2>
+        </div>
+
+        <p>{{ estate.description }}</p>
+
+        <div class="section-header">
+            <h3>Budget Analysis</h3>
+        </div>
+
+        <!-- <p>
+            Clean 2 bedroom flat around Rayfield, Jos,
+            Tilled rooms, fenced and gate compound
+            running water, and reliable security.
+        </p> -->
+
+        <table border="1px">
+
+            <tr>
+                <td><strong>Fees Payable</strong></td>
+                <td><strong>Equity</strong></td>
+            </tr>
+
+            <tr>
+                <td>Inspection fee:</td>
+                <td class="formatted-price" >{{ estate.inspection_fee }}</td>
+            </tr>
+
+            <tr>
+                <td>Agent fee:</td>
+                <td class="formatted-price" >{{ estate.agent_fee }}</td>
+            </tr>
+
+            <tr>
+                <td>Rental fee:</td>
+                <td class="formatted-price">{{ estate.rental_fee }}</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><strong class="formatted-price" >{{ estate.total_price }}</strong></td>
+            </tr>
+            
+        </table>
+
+        <a href="{% url 'authenticator:register' %}"><button  id="add-estate">Schedule Pick up</button></a>
+
+    </div>
+
+    <script>
+        //formating prices
+        // Get all elements with the "formatted-price" class
+        const priceElements = document.querySelectorAll('.formatted-price');
+
+        // Loop through each element and format the price with commas
+        priceElements.forEach(element => {
+            // Parse the integer value and format it with commas
+            const price = parseInt(element.textContent, 10);
+            const formattedPrice = price.toLocaleString();
+            // Update the element's content with the formatted price
+            element.textContent = formattedPrice;
+        });
+    </script>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estate Estate</title>
+    <link type="text/css" href="{% static 'styles/style.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'styles/detail.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'styles/inspection.css' %}" rel="stylesheet" />
+    <link type="image/x-icon" href="{% static 'img/est.ico' %}" rel="icon" />
+</head>
+<body>
+    
+    <div id="header">
+
+        <div class="header-wrap">
+            <!-- <a href="detail.html"> -->
+                <div class="site-id" onclick="history.back()">
+                    <img src="{% static 'img/back.svg' %}" />
+                </div>
+            <!-- </a> -->
+        </div>
+        
+    </div>
+
+    <div class="header-pad"></div>
+
+    <div class="main">
+
+        <div class="section-header">
+            <h2>Edit Estate</h2>
+        </div>
+
+
+
+        <form method="POST" enctype="multipart/form-data" >
+            <!-- container component -->
+            {% csrf_token %}
+            <div class="container detail">
+
+                <div class="item">
+                    <div class="item-img-box item-detail">
+
+                        <div style="display:flex; flex-direction:column; align-items: center; justify-content: center;">
+                            <img src="{{estate.img.url}}" id="image_preview_id" width="100%"/>
+                            <input id="image_input_id" type="file" name="img" accept="image/*"/>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-img-box item-detail">
+
+                        <div style="display:flex; flex-direction:column; align-items: center; justify-content: center;">
+                            <img src="{{estate.img2.url}}" id="image_preview_id2" width="100%"/>
+                            <input id="image_input_id2" type="file" name="img2"  accept="image/*"/>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-img-box item-detail">
+
+                        <div style="display:flex; flex-direction:column; align-items: center; justify-content: center;">
+                            <img src="{{estate.img3.url}}" id="image_preview_id3" width="100%"/>
+                            <input id="image_input_id3" type="file" name="img3" accept="image/*"/>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="item">
+
+                    <div class="item-img-box item-detail">
+
+                        <div style="display:flex; flex-direction:column; align-items: center; justify-content: center;">
+                            <img src="{{ estate.img4.url }}" id="image_preview_id4" width="100%"/>
+                            <input id="image_input_id4" type="file" name="img4" accept="image/*" />
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+             <input type="text" name="title" placeholder="Title" value="{{ estate.title }}"/>
+             <input type="text" name="area" placeholder="Area of interest" value="{{ estate.area }}"/>
+             <textarea  name="description" placeholder="Description">{{ estate.description }}</textarea>
+             <input type="text" name="insp_fee" placeholder="Inspection fee" value="{{ estate.inspection_fee}}"/>
+             <input type="text" name="agent_fee" placeholder="Agent fee" value="{{ estate.agent_fee }}" />
+             <input type="text" name="rent_fee" placeholder="Rental fee" value="{{ estate.rental_fee }}"/>
+<!--             <input type="text" name="legal_fee" placeholder="Legal fee" />-->
+            <a href="success.html"><button>Save Changes</button></a>
+
+        </form>
+
+    </div>
+
+    <!-- <script>
+
+        document.addEventListener('DOMContentLoaded', function(){
+            const imageInput = document.getElementById('image_input_id');
+            const imagePreview = document.getElementById('image_preview_id');
+
+            imageInput.addEventListener('change', function(){
+                const file = imageInput.files[0];
+                if(file){
+                    const reader = new FileReader();
+
+                    reader.onload = function(e){
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = "block";
+                    }
+
+                    reader.readAsDataURL(file);
+                }else{
+                        imagePreview.src = "";
+                        imagePreview.style.display = "none";
+                }
+            });
+        
+        });
+    </script> -->
+    <!-- <script src="{% static 'js/imgedit.js' %}"></script> -->
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function(){
+            // controls the number of images to upload
+            // const MAX_IMAGES = 0;
+            // const imageContainer = document.querySelector('.container.detail');
+
+            // Function to handle file input change
+            function handleFileInputChange(input, preview) {
+                const file = input.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e){
+                        preview.src = e.target.result;
+                        preview.style.display = "block";
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    preview.src = "";
+                    preview.style.display = "none";
+                }
+            }
+
+            // for(let i = 1; i <= 4; i++){
+            //     console.log(i);
+            //     var imageInput = document.getElementById(`image_input_id${i}`);
+            //     var imagePreview = document.getElementById(`image_preview_id${i}`);
+
+            //     imageInput.addEventListener('change', function() {
+            //         handleFileInputChange(imageInput, imagePreview);
+            //     });
+
+            // }
+
+            // Attach event listener to the main image input and the 3 other image inputs
+            // todo: look for a more efficient way to implement -- see for loop above
+            const mainImageInput = document.getElementById('image_input_id');
+            const mainImagePreview = document.getElementById('image_preview_id');
+
+            mainImageInput.addEventListener('change', function() {
+                handleFileInputChange(mainImageInput, mainImagePreview);
+            });
+
+            // image 2
+            const imageInput2 = document.getElementById('image_input_id2');
+            const imagePreview2 = document.getElementById('image_preview_id2');
+
+            imageInput2.addEventListener('change', function() {
+                handleFileInputChange(imageInput2, imagePreview2);
+            });
+
+            // image 3
+            const imageInput3 = document.getElementById('image_input_id3');
+            const imagePreview3 = document.getElementById('image_preview_id3');
+
+            imageInput3.addEventListener('change', function() {
+                handleFileInputChange(imageInput3, imagePreview3);
+            });
+
+            // image 4
+            const imageInput4 = document.getElementById('image_input_id4');
+            const imagePreview4 = document.getElementById('image_preview_id4');
+
+            imageInput4.addEventListener('change', function() {
+                handleFileInputChange(imageInput4, imagePreview4);
+            });
+
+
+            // Function to dynamically add image input
+            // function addImageInput(index) {
+            //     const newItem = document.createElement('div');
+            //     newItem.className = 'item';
+            //     newItem.innerHTML = `
+            //         <div class="item-img-box item-detail">
+            //             <div style="display:flex; flex-direction:column; align-items: center; justify-content: center;">
+            //                 <img src="#" id="image_preview_id_${index}"/>
+            //                 <input type="file" id="image_input_id_${index}" name="img${index}" />
+            //             </div>
+            //         </div>
+            //     `;
+            //     imageContainer.appendChild(newItem);
+
+            //     const imageInput = document.getElementById(`image_input_id_${index}`);
+            //     const imagePreview = document.getElementById(`image_preview_id_${index}`);
+
+            //     // Attach event listener to dynamically added input
+            //     imageInput.addEventListener('change', function() {
+            //         handleFileInputChange(imageInput, imagePreview);
+            //     });
+            // }
+
+
+            // // Attach event listener to the video input
+            // const videoInput = document.getElementById('video_input_id');
+            // const videoPreview = document.getElementById('video_preview_id');
+            // videoInput.addEventListener('change', function() {
+            //     handleFileInputChange(videoInput, videoPreview);
+            // });
+
+            // Dynamically add additional image inputs
+            // for (let i = 2; i <= MAX_IMAGES; i++) {
+            //     addImageInput(i);
+            // }
+
+        });
+    </script>
+</body>
+</html>

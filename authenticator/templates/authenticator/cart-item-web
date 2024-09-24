@@ -1,0 +1,113 @@
+
+        {% for estate in applied_estates %}
+        <div class="cart-item web">
+
+            <div class="cart-img-box">
+                <img src="{{ estate.img.url }}" alt="" />
+
+            </div>
+
+            <div class="cart-text-box">
+                <div class="text-box-head">
+                    <h4>{{ estate.title }}</h4>
+                    <a href="{% url 'authenticator:delete_estate' estate.id %}">
+                    <div class="icn-box">
+                        <img src="{% static 'img/delete icon.svg' %}" alt="" />
+                    </div>
+                    </a>
+                </div>
+                <div class="text-box-foot">
+
+                    <div class="qty-editor">
+
+                        <div class="dashboard-icn-and-text">
+                            <div class="dashboard-icn-box">
+                                <img src="{% static 'img/location.svg' %}" alt="">
+                            </div>
+                            <p>{{ estate.area }}</p>
+                        </div>
+
+                        <div class="dashboard-icn-and-text">
+                            <div class="dashboard-icn-box">
+                                <img src="{% static 'img/pay.svg' %}" alt="">
+                            </div>
+                            <p>{{ estate.total_price }}</p>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="text-box-foot">
+
+                    <p class="desc"><strong>In review</strong></p>
+                    <a href="{% url 'browser:detail-app' estate.id %}"><button class="itm-btn">View</button></a>
+                </div>
+                <!-- <p class="desc"><strong>5</strong> Applications <strong>120</strong> Views</p> -->
+
+            </div>
+
+        </div>
+        {% endfor %}
+
+
+ Application data extraction
+         {% for data in application_data %}
+        <div class="cart-item web">
+
+<!--            <div class="cart-img-box">-->
+<!--                <img src="../img//house.png" alt="" />-->
+<!--                -->
+<!--            </div>-->
+
+            <div class="cart-text-box">
+                <div class="text-box-head">
+<!--                    <h4>{{ data.client_name }}</h4>-->
+                    <div class="dashboard-icn-and-text">
+                            <div class="dashboard-icn-box">
+                                <img src="../img/location.svg" alt="">
+                            </div>
+                            <h4>{{ data.client_name }}</h4>
+                    </div>
+                    <div class="icn-box">
+                        <img src="{% static 'img/delete icon.svg' %}" alt="" />
+                    </div>
+                </div>
+                <div class="text-box-foot">
+
+<!--                    <div class="qty-editor">-->
+
+<!--                        <div class="dashboard-icn-and-text">-->
+<!--                            <div class="dashboard-icn-box">-->
+<!--                                <img src="../img/location.svg" alt="">-->
+<!--                            </div>-->
+<!--                            <p>{{ data.client_phone }}</p>-->
+<!--                        </div>-->
+
+<!--                        <div class="dashboard-icn-and-text">-->
+<!--                            <div class="dashboard-icn-box">-->
+<!--                                <img src="../img/pay.svg" alt="">-->
+<!--                            </div>-->
+<!--                            <p>150,000</p>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+
+                </div>
+                <div class="text-box-foot">
+
+<!--                    <p class="desc"><strong>5</strong> Apps <strong>120</strong> Views</p>-->
+                    <div class="dashboard-icn-and-text">
+                            <div class="dashboard-icn-box">
+                                <img src="../img/pay.svg" alt="">
+                            </div>
+                            <p>150,000</p>
+                    </div>
+                    <a href="pages/detail.html"><button class="itm-btn">View</button></a>
+                </div>
+                <!-- <p class="desc"><strong>5</strong> Applications <strong>120</strong> Views</p> -->
+
+            </div>
+
+        </div>
+        {% endfor %}
