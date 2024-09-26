@@ -16,12 +16,14 @@
     <div id="header">
 
         <div class="header-wrap">
-
-            <a href="{% url 'browser:legal' %}">
-                <div class="site-id">
-                    <img src="{% static 'img/est.svg' %}" />
-                </div>
-            </a>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="{% url 'browser:legal' %}">
+                    <div class="site-id">
+                        <img src="{% static 'img/est.svg' %}" />
+                    </div>
+                </a>
+                <a href="#" style="margin-inline:8px"><div class="profile"> </div></a>
+            </div>
 
             <div class="search-box">
 
@@ -37,7 +39,11 @@
             </div>
 
             <!-- profile  -->
-            <a href="#"><div class="profile"> </div></a>
+
+
+             <a href="{% url 'account:logout' %}"><button class="itm-btn" style="background-color: red;">Log out</button></a>
+
+
         </div>
         
     </div>
@@ -46,9 +52,16 @@
 
     <div class="main">
 
-        <div class="section-header">
-            <h2>{{ estate_count }} Meals </h2>
-        </div>
+        {% if request.user.is_authenticated %}
+           <h2>Welcome {{ request.user.first_name|default:request.user.username }}</h2>
+        <a href="{% url 'account:password_change' %}">Change password</a>
+        {% else %}
+                <a href="{% url 'account:login' %}"><button class="itm-btn" style="background-color: green;">Log in</button></a>
+        {% endif %}
+
+<!--        <div class="section-header">-->
+<!--            <p>We have {{ estate_count }} Meals for you</p>-->
+<!--        </div>-->
 
         <!-- container component -->
         <div class="container">

@@ -1,6 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from .models import Estate, Legal
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -9,6 +10,7 @@ def page_not_found(request, exception):
     return render(request, 'authenticator/error.html', status=404)
 
 
+@login_required
 def index(request):
     estates = Estate.objects.all().order_by("-id")
     estate_count = estates.count()
