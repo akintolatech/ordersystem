@@ -39,9 +39,12 @@
             </div>
 
             <!-- profile  -->
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <p><a href="{% url 'password_change' %}">Change password</a> | <a href="#">Edit account</a></p>
+                <a href="{% url 'logout' %}"><button class="itm-btn" style="background-color: red; margin-inline: 12px;">Log out</button></a>
+            </div>
 
 
-             <a href="{% url 'logout' %}"><button class="itm-btn" style="background-color: red;">Log out</button></a>
 
 
         </div>
@@ -54,7 +57,7 @@
 
         {% if request.user.is_authenticated %}
            <h2>Welcome {{ request.user.first_name|default:request.user.username }}</h2>
-        <a href="{% url 'password_change' %}">Change password</a>
+
         {% else %}
                 <a href="{% url 'login' %}"><button class="itm-btn" style="background-color: green;">Log in</button></a>
         {% endif %}
@@ -110,27 +113,6 @@
 
             </div>
         {%endfor %}
-        </div>
-
-        <div class="social-media-container">
-            <h5>Khalid Kitchen's™ &copy <span class="year">202 </span></h5>
-
-            <div class="social-media">
-
-                <div class="contact-icon">
-                    <img src="{% static 'img/social media/fb-01.svg' %}"/>
-                </div>
-
-<!--                <div class="contact-icon">-->
-<!--                    <img src="{%static 'img/social media/x-01.svg' %}"/>-->
-<!--                </div>-->
-
-<!--                <div class="contact-icon">-->
-<!--                    <img src="{% static 'img/social media/tiktok-01.svg' %}"/>-->
-<!--                </div>-->
-
-            </div>
-
         </div>
 
 

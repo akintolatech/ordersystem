@@ -1,10 +1,142 @@
-{% extends "base.html" %}
+{% load static %}
 
-{% block title %}Dashboard{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khalid Kitchen's™</title>
+    <link type="text/css" href="{% static 'styles/style.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'styles/prynav.css' %}" rel="stylesheet" />
+    <!-- <script src="{% static 'js/jquery.js' %}"></script> -->
+    <link type="image/x-icon" href="{% static 'img/est.ico' %}" rel="icon" />
+</head>
+<body>
+    
+    <div id="header">
 
-{% block content %}
-  <h1>Dashboard</h1>
-  <p>
-    Welcome to your dashboard. You can <a href="{% url "edit" %}">edit your profile</a> or <a href="{% url "password_change" %}">change your password</a>.
-  </p>
-{% endblock %}
+        <div class="header-wrap">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="{% url 'browser:legal' %}">
+                    <div class="site-id">
+                        <img src="{% static 'img/est.svg' %}" />
+                    </div>
+                </a>
+                <a href="#" style="margin-inline:8px"><div class="profile"> </div></a>
+            </div>
+
+            <div class="search-box">
+
+                <form action="#" method="POST">
+                    <input type="search" name="" placeholder="Search type, price, area"/>
+                </form>
+
+                <a href="#">
+                    <div class="search-icn-box">
+                        <img src="{% static 'img/search.svg' %}" alt="" />
+                    </div>
+                </a>
+            </div>
+
+            <!-- profile  -->
+
+
+             <a href="{% url 'logout' %}"><button class="itm-btn" style="background-color: red;">Log out</button></a>
+
+
+        </div>
+        
+    </div>
+
+    <div class="header-pad"></div>
+
+    <div class="main">
+
+        {% if request.user.is_authenticated %}
+           <h2>Welcome {{ request.user.first_name|default:request.user.username }}</h2>
+        <a href="{% url 'password_change' %}">Change password</a>
+        {% else %}
+                <a href="{% url 'login' %}"><button class="itm-btn" style="background-color: green;">Log in</button></a>
+        {% endif %}
+
+<!--        <div class="section-header">-->
+<!--            <p>We have {{ estate_count }} Meals for you</p>-->
+<!--        </div>-->
+
+        <!-- container component -->
+        <div class="container">
+        {%for estate in estates %}
+            <div class="item">
+
+                <div class="item-img-box">
+                    <img src="{{ estate.img.url }}" />
+                </div>
+                
+                <div class="item-detail">
+
+                    <div class="desc">
+
+                        <div class="icntext-container">
+                            <div class="icn-img">
+                                <img src="{% static 'img/villa.svg' %}" />
+                            </div>
+                            <div class="icn-text">
+                                <h3>{{ estate.title }}</h3>
+                            </div>
+                        </div>
+
+                        <div class="icn2">
+                            <div class="icntext-container left">
+                                <div class="icn-img">
+                                    <img src="{% static 'img/location.svg' %}" />
+                                </div>
+                                <div class="icn-text">
+                                    <p>{{ estate.area }}</p>
+                                </div>
+                            </div>
+
+                            <div class="icntext-container">
+                                <div class="icn-img" style="margin: 0;">
+                                    <img src="{% static 'img/pay.svg' %}" />
+                                </div>
+                                <div class="icn-text">
+                                    <p class="formatted-price" >{{ estate.total_price }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url 'browser:detail' estate.id %}"><button class="itm-btn">Order</button></a>
+                </div>
+
+            </div>
+        {%endfor %}
+        </div>
+
+        <div class="social-media-container">
+            <h5>Khalid Kitchen's™ &copy <span class="year">202 </span></h5>
+
+            <div class="social-media">
+
+                <div class="contact-icon">
+                    <img src="{% static 'img/social media/fb-01.svg' %}"/>
+                </div>
+
+<!--                <div class="contact-icon">-->
+<!--                    <img src="{%static 'img/social media/x-01.svg' %}"/>-->
+<!--                </div>-->
+
+<!--                <div class="contact-icon">-->
+<!--                    <img src="{% static 'img/social media/tiktok-01.svg' %}"/>-->
+<!--                </div>-->
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

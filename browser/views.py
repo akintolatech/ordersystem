@@ -19,7 +19,6 @@ def index(request):
     context = {
         'estate_count': estate_count,
         'estates': estates,
-        'Welcome': 'You are wired!'
     }
     return render(request, "browser/index.html", context)
 
