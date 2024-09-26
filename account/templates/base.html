@@ -10,18 +10,34 @@
   <div class="auth-container">
 
     <div id="content">
-      <center>
-          <div class="image-box">
-              <img src="{% static 'img/buka.png' %}" />
+
+
+      <div class="image-box">
+
+          <div class="image-and-text-container">
+            <center>
+            <img src="{% static 'img/buka.png' %}" />
+            
+              <p>Welcome secure credentials below</p>
+            {% if error %}
+                <p style="color:red;">{{ error }}</p>
+            {% endif %}
+            </center>
+
           </div>
-          <p>Welcome secure credentials below</p>
-          {% if error %}
-              <p style="color:red;">{{ error }}</p>
-          {% endif %}
-      </center>
-      {% block content %}
-      {% endblock %}
+          
+      </div>
+          
+
+    
+      <div class="content-container">
+        {% block content %}
+        {% endblock %}
+      </div>
+      
+
     </div>
+    
   </div>
 
 </body>

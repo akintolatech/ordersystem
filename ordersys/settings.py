@@ -14,8 +14,8 @@ from pathlib import Path
 import os
 
 LOGIN_REDIRECT_URL = 'browser:index'
-LOGIN_URL = 'account:login'
-LOGOUT_URL = 'account:logout'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,8 +37,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.auth',
     'account.apps.AccountConfig',
+    'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
