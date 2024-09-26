@@ -3,29 +3,26 @@
 <html>
 <head>
   <title>{% block title %}{% endblock %}</title>
-  <link href="{% static "css/base.css" %}" rel="stylesheet">
+  <link href="{% static 'styles/auth.css' %}" rel="stylesheet">
 </head>
 <body>
-  <div id="header">
-    <span class="logo">Bookmarks</span>
-    {% if request.user.is_authenticated %}
 
-    {% endif %}
-    <span class="user">
-      {% if request.user.is_authenticated %}
-        Hello {{ request.user.first_name|default:request.user.username }},
-        <form action="{% url 'account:logout' %}" method="post">
-          <button type="submit">Logout</button>
-          {% csrf_token %}
-        </form>
-      {% else %}
-        <a href="{% url 'account:login' %}">Log-in</a>
-      {% endif %}
-    </span>
+  <div class="auth-container">
+
+    <div id="content">
+      <center>
+          <div class="image-box">
+              <img src="{% static 'img/buka.png' %}" />
+          </div>
+          <p>Welcome secure credentials below</p>
+          {% if error %}
+              <p style="color:red;">{{ error }}</p>
+          {% endif %}
+      </center>
+      {% block content %}
+      {% endblock %}
+    </div>
   </div>
-  <div id="content">
-    {% block content %}
-    {% endblock %}
-  </div>
+
 </body>
 </html>
