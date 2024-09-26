@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'authenticator.apps.AuthenticatorConfig',
+    'account.apps.AccountConfig',
     'browser.apps.BrowserConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -123,6 +123,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # For media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -132,7 +134,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'authenticator.Client'
-AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend', 'authenticator.backends.MyAuthBackend']
-
+# AUTH_USER_MODEL = 'authenticator.Client'
+# AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend', 'authenticator.backends.MyAuthBackend']
+#
 

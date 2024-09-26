@@ -4,8 +4,10 @@ from .models import Estate, Legal
 
 # Create your views here.
 
+
 def page_not_found(request, exception):
     return render(request, 'authenticator/error.html', status=404)
+
 
 def index(request):
     estates = Estate.objects.all().order_by("-id")
@@ -27,12 +29,14 @@ def detail(request, estate_id):
     }
     return render(request, 'browser/pages/detail.html',context)
 
+
 def detail_app (request, estate_id):
     estate = get_object_or_404(Estate, pk=estate_id)
     context = {
         'estate': estate
     }
     return render(request, 'browser/pages/detail-app.html',context)
+
 
 def legal (request):
     context = {
