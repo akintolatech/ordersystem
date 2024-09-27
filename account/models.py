@@ -12,7 +12,8 @@ class Profile(models.Model):
 
     photo = models.ImageField(
         upload_to='photos',
-        blank=True
+        blank=True,
+        null=True
     )
 
     phone_number = models.CharField(max_length=11, null=True, blank=True)

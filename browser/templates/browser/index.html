@@ -17,16 +17,13 @@
 
         <div class="header-wrap">
             <div style="display: flex; justify-content: space-between; align-items: center;">
+
                 <a href="{% url 'browser:legal' %}">
                     <div class="site-id">
                         <img src="{% static 'img/est.svg' %}" />
                     </div>
                 </a>
-                <a href="#" style="margin-inline:8px">
-                    <div class="profile">
-                        <img src="{% if request.user.profile.photo %} {{ request.user.profile.photo.url }} {% else %} {% static 'img/user.jpg' %} {% endif %}" />
-                    </div>
-                </a>
+
             </div>
 
             <div class="search-box">
@@ -42,11 +39,11 @@
                 </a>
             </div>
 
-            <!-- profile  -->
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <p><a href="{% url 'password_change' %}">Change password</a> | <a href="{% url 'edit' %}">Edit account</a></p>
-                <a href="{% url 'logout' %}"><button class="itm-btn" style="background-color: red; margin-inline: 12px;">Log out</button></a>
-            </div>
+            <a href="#" style="margin-inline:8px">
+                <div class="profile">
+                    <img src="{% if request.user.profile.photo %} {{ request.user.profile.photo.url }} {% else %} {% static 'img/user.jpg' %} {% endif %}" />
+                </div>
+            </a>
 
 
 
@@ -59,12 +56,8 @@
 
     <div class="main">
 
-        {% if request.user.is_authenticated %}
-           <h2>Welcome {{ request.user.first_name|default:request.user.username }}</h2>
 
-        {% else %}
-                <a href="{% url 'login' %}"><button class="itm-btn" style="background-color: green;">Log in</button></a>
-        {% endif %}
+        <h2>Welcome {{ request.user.first_name|default:request.user.username }}</h2>
 
 <!--        <div class="section-header">-->
 <!--            <p>We have {{ estate_count }} Meals for you</p>-->
@@ -117,6 +110,16 @@
 
             </div>
         {%endfor %}
+        </div>
+        
+        <!-- profile  -->
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <p><a href="{% url 'password_change' %}">Change password</a> | <a href="{% url 'edit' %}">Edit account</a></p>
+            <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button class="itm-btn" style="background-color: red; margin-inline: 12px;">Log out</button>
+            </form>
+            
         </div>
 
 

@@ -9,8 +9,8 @@ class Legal(models.Model):
     def __str__(self):
         return self.title
 
-class Estate(models.Model):
 
+class Estate(models.Model):
     # fields for the estate object
     img = models.ImageField(upload_to="estates/", default="url")
     img2 = models.ImageField(upload_to="estates/", default="url")
