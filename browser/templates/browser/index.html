@@ -22,7 +22,11 @@
                         <img src="{% static 'img/est.svg' %}" />
                     </div>
                 </a>
-                <a href="#" style="margin-inline:8px"><div class="profile"> </div></a>
+                <a href="#" style="margin-inline:8px">
+                    <div class="profile">
+                        <img src="{% if request.user.profile.photo %} {{ request.user.profile.photo.url }} {% else %} {% static 'img/user.jpg' %} {% endif %}" />
+                    </div>
+                </a>
             </div>
 
             <div class="search-box">

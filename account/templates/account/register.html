@@ -9,5 +9,6 @@
     {{ user_form.as_p }}
     {% csrf_token %}
     <p><input type="submit" value="Create my account"></p>
+    <p>if you already have an account <a href="{% url 'login' %}">Login here</a></p>
   </form>
 {% endblock %}

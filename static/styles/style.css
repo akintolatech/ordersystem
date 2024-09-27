@@ -104,11 +104,13 @@ button {
   height: 36px;
   box-shadow: inset 2px 2px 3px #ddd9d9, 
                 inset -2px -2px 3px #ddd9d9;
-  border-radius: 50%;
+
   color: white;
-  background-image: url("../img/user.jpg");
   background-size: cover;
   cursor: pointer;
+}
+.profile img {
+    border-radius: 50%;
 }
 
 .header-pad {
