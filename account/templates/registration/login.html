@@ -1,7 +1,20 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}Log-in{% endblock %}
+{% block header %}
+  <div id="header">
 
+      <div class="header-wrap">
+          <a href="{% url 'login' %}">
+              <div class="site-id">
+                  <img src="{% static '/img/est.svg' %}" />
+              </div>
+          </a>
+      </div>
+
+  </div>
+  <div class="header-pad"></div>
+{% endblock %}
 {% block content %}
   <h1>Log-in</h1>
   {% if form.errors %}
@@ -10,9 +23,7 @@
       Please try again.
     </p>
   {% else %}
-    <p>
-      Please, use the following form to log-in:
-    </p>
+
   {% endif %}
   <div class="login-form">
     <form action="{% url 'login' %}" method="post">
