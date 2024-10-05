@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="186138d3-426b-4253-bab5-a0fc448ea2e3" name="Changes" comment="Shop and Cart Implementation">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart/templates/cart/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/cart/templates/cart/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orders/templates/orders/order/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/orders/templates/orders/order/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orders/templates/orders/order/created.html" beforeDir="false" afterPath="$PROJECT_DIR$/orders/templates/orders/order/created.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ordersys/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordersys/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +294,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728169262160</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Shop and Cart Implementation">
+      <option name="closed" value="true" />
+      <created>1728169499045</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1728169499045</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Shop and Cart Implementation">
+      <option name="closed" value="true" />
+      <created>1728169513861</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1728169513861</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
