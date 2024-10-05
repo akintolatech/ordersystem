@@ -35,6 +35,14 @@ def register(request):
     )
 
 
+
+def dashboard(request):
+    return render(
+        request,
+        "account/dashboard.html"
+    )
+
+
 @login_required
 def edit(request):
     if request.method == 'POST':

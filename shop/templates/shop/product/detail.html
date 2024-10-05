@@ -1,0 +1,118 @@
+{% extends "account/dashboard.html" %}
+{% load static %}
+
+{% block title %}
+  {{ product.name }}
+{% endblock %}
+{% block content %}
+
+    <div class="header-wrap">
+        <a href="{% url 'shop:product_list' %}">
+            <div class="site-id">
+                <img src="{% static '/img/back.svg' %}" />
+            </div>
+        </a>
+    </div>
+
+  <div class="main desk-comp">
+
+      <div class="section-header">
+<!--            <h2>In Pictures</h2>-->
+      </div>
+
+      <!-- container component -->
+      <div class="container detail">
+
+          <div class="item">
+              <div class="item-img-box">
+                  <img src="{% if product.image %}{{ product.image.url }}{% else %}
+                  {% static 'img/no_image.png' %}{% endif %}" />
+              </div>   
+          </div>
+
+          <div class="item">
+              <div class="item-img-box">
+                  <img src="{{ estate.img2.url }}" />
+              </div>
+              
+          </div>
+
+          <div class="item">
+              <div class="item-img-box">
+                  <img src="{{ estate.img3.url }}" />
+              </div>
+          </div>
+
+          <div class="item">
+              <div class="item-img-box">
+                  <img src="{{ estate.img4.url }}" />
+              </div>
+          </div>
+      </div>
+
+      <div class="item-detail">
+          <div class="desc">
+              <div class="icntext-container">
+                  <div class="icn-img">
+                      <img src="{% static '/img/villa.svg' %}" />
+                  </div>
+                  <div class="icn-text">
+                      <h3>{{ product.name }}</h3>
+                  </div>
+              </div>
+              <div class="icn2">
+
+                  <div class="icntext-container left">
+                      <div class="icn-img">
+                          <img src="{% static '/img/location.svg' %}" />
+                      </div>
+                      <div class="icn-text">
+                          <p>{{ product.category }}</p>
+                      </div>
+                  </div>
+
+                  <div class="icntext-container">
+                      <div class="icn-img" style="margin: 0px;">
+                          <img src="{% static 'img/pay.svg' %}" />
+                      </div>
+                      <div class="icn-text">
+                          <p class="formatted-price">{{ product.price }}</p>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+<!--            <button class="itm-btn">Copy</button>-->
+      </div>
+
+      <div class="section-header">
+          <h2>Description</h2>
+      </div>
+
+      <p>{{ product.description }}</p>
+
+      <div class="section-header">
+          <h3>Budget Analysis</h3>
+      </div>
+
+      <a href="#"><button>Schedule Pick up</button></a>
+
+  </div>
+
+  <script>
+      //formating prices
+      // Get all elements with the "formatted-price" class
+      const priceElements = document.querySelectorAll('.formatted-price');
+
+      // Loop through each element and format the price with commas
+      priceElements.forEach(element => {
+          // Parse the integer value and format it with commas
+          const price = parseInt(element.textContent, 10);
+          const formattedPrice = price.toLocaleString();
+          // Update the element's content with the formatted price
+          element.textContent = formattedPrice;
+      });
+  </script>
+
+
+{% endblock %}

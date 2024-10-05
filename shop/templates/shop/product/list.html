@@ -1,0 +1,74 @@
+{% extends "account/dashboard.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+
+
+    
+    <div class="categories-container">
+
+        <a href="{% url 'shop:product_list' %}">
+            <button class="cat-btn"  {% if not category %}class="selected"{% endif %}>All</button>
+        </a>
+
+        {% for c in categories %}
+
+            <a href="{{ c.get_absolute_url }}">
+                <button class="cat-btn" {% if not category %}class="selected"{% endif %}>{{ c.name }}</button>
+            </a>
+
+        {% endfor %}
+
+    </div>
+
+
+
+    <!-- container component -->
+    <div class="container">
+    {% for product in products %}
+        <div class="item">
+
+            <div class="item-img-box">
+                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"/>
+            </div>
+
+            <div class="item-detail">
+
+                <div class="desc">
+
+                    <div class="icntext-container">
+                        <div class="icn-img">
+                            <img src="{% static 'img/villa.svg' %}" />
+                        </div>
+                        <div class="icn-text">
+                            <h3>{{ product.name }}</h3>
+                        </div>
+                    </div>
+
+                    <div class="icn2">
+
+
+                        <div class="icntext-container">
+                            <div class="icn-img" style="margin: 0;">
+                                <img src="{% static 'img/pay.svg' %}" />
+                            </div>
+                            <div class="icn-text">
+                                <p class="formatted-price" >{{ product.price }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="{{ product.get_absolute_url }}"><button class="itm-btn">Add to Cart</button></a>
+            </div>
+
+        </div>
+    {%endfor %}
+    </div>
+
+{% endblock %}

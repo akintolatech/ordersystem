@@ -76,7 +76,7 @@
 .qty-editor {
  width: 100px;
  height: 40px;
- /* border: 1px solid red;  */
+ border: 1px solid red; 
  /* float: right; */
  display: flex;
  justify-content: space-between;

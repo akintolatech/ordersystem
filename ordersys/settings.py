@@ -22,7 +22,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
-LOGIN_REDIRECT_URL = 'browser:index'
+# LOGIN_REDIRECT_URL = 'browser:index'
+LOGIN_REDIRECT_URL = 'shop:product_list'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
@@ -54,8 +55,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'browser.apps.BrowserConfig',
-    'shop.apps.ShopConfig'
+    'shop.apps.ShopConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -81,6 +84,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                "browser.context_processors.product_list",
+                'shop.context_processors.product_list',
             ],
         },
     },
