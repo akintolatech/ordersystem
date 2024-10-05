@@ -1,4 +1,4 @@
-{% extends "webcms/base.html" %}
+{% extends "account/dashboard.html" %}
 {% load static %}
 
 {% block title %}
@@ -9,7 +9,12 @@
   <h1>Thank you</h1>
   <p>Your order has been successfully completed. Your Tracking code has been sent to 
   <strong>{{ order.email }}</strong>.</p>
-  <div class="message-container">
+
+  <a href="{% url 'shop:product_list' %}" >
+    <button class="itm-btn" style="color: white; width: 180px; margin-block: 18px;">Continue shopping</button>
+  </a>
+
+  <!-- <div class="message-container">
     <center>
       <div class="message-container-image-box">
         <img src="{% static 'img/check.svg' %}" width="320px"/>
@@ -21,5 +26,5 @@
       </p>
     </center>
     
-  </div>
+  </div> -->
 {% endblock %}

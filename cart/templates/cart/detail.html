@@ -24,11 +24,11 @@
 
         {% if total_items > 0 %}
           <h1>
-            Your shopping cart
-            <a href="{% url 'cart:cart_detail' %}">
+            Your cart
+            <!-- <a href="{% url 'cart:cart_detail' %}">
               {{ total_items }} item{{ total_items|pluralize }},
               &#x20A6 {{ cart.get_total_price }}
-            </a>  
+            </a>   -->
           </h1>
  
 
@@ -89,9 +89,6 @@
 
                 </div>
 
-                <a href="{% url 'shop:product_list' %}" >
-                    <button style="width:180px; height:44px; margin-bottom:12px;">Continue shopping</button>
-                </a>
 
             </div>
 
@@ -129,6 +126,12 @@
                     <p><input type="submit" value="Place order"></p>
                     {% csrf_token %}
                   </form>
+
+                  <hr/>
+
+                  <a href="{% url 'shop:product_list' %}" >
+                      <button style="height:44px;">Continue shopping</button>
+                  </a>
 
                    <!-- <a href="{% url 'orders:order_create' %}" >Checkout</a> -->
 

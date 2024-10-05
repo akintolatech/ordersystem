@@ -22,12 +22,13 @@
     <h1>Edit your account</h1>
     <p>You can edit your account using the following form:</p>
     <form method="post" enctype="multipart/form-data">
-    <div class="long-form">
-          {{ user_form.as_p }}
-          {{ profile_form.as_p }}
-    </div>
+        <div class="long-form">
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+        </div>
 
-    {% csrf_token %}
-    <p><input type="submit" value="Save changes"></p>
+        {% csrf_token %}
+        <p><input type="submit" value="Save changes"></p>
     </form>
+    <h5><a href="{% url 'password_change' %}">Change password</a> </h5>
 {% endblock %}

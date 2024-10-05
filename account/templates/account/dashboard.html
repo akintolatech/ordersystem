@@ -31,33 +31,22 @@
                     {% csrf_token %}
                     <button class="itm-btn" style="background-color: white; color: black; margin-inline: 12px;">Cart({% with total_items=cart|length %}{% if total_items > 0 %}{{ total_items }}{% elif not order %}0{% endif %}{% endwith %})</button>
                 </form>
+
+                    
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button class="itm-btn" style="background-color: red; margin-inline: 12px;">Log out</button>
+                </form>
     
 
             </div>
 
-
-
-            <!-- <div class="search-box">
-
-                <form action="#" method="POST">
-                    <input type="search" name="" placeholder="Search type, price, area"/>
-                </form>
-
-                <a href="#">
-                    <div class="search-icn-box">
-                        <img src="{% static 'img/search.svg' %}" alt="" />
-                    </div>
-                </a>
-            </div> -->
-
             
-            <a href="#" style="margin-inline:8px">
+            <a href="{% url 'edit' %}" style="margin-inline:8px">
                 <div class="profile">
                     <img src="{% if request.user.profile.photo %} {{ request.user.profile.photo.url }} {% else %} {% static 'img/user.jpg' %} {% endif %}" />
                 </div>
             </a>
-
-
 
 
         </div>
@@ -72,18 +61,7 @@
 
         {% block content %}{% endblock %}
 
-        <!-- profile  -->
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-inline:12px;">
-            <h5><a href="{% url 'password_change' %}">Change password</a> | <a href="{% url 'edit' %}">Edit account</a></h5>
-            
- 
-            <form method="POST" action="{% url 'logout' %}">
-                {% csrf_token %}
-                <button class="itm-btn" style="background-color: red; margin-inline: 12px;">Log out</button>
-            </form>
 
-
-        </div>
 
 
     </div>
