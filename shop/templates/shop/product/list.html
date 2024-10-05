@@ -10,6 +10,9 @@
 {% block content %}
 
 
+    <h2 style="margin-bottom: 0;">Welcome {{ request.user.first_name|default:request.user.username }}</h2>
+
+
     
     <div class="categories-container">
 
@@ -64,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ product.get_absolute_url }}"><button class="itm-btn">Add to Cart</button></a>
+                <a href="{{ product.get_absolute_url }}"><button class="itm-btn">Order</button></a>
             </div>
 
         </div>

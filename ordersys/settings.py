@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 from decouple import config
 
+CART_SESSION_ID = 'cart'
+
 # Email server configuration
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
@@ -58,6 +60,8 @@ INSTALLED_APPS = [
 
     'browser.apps.BrowserConfig',
     'shop.apps.ShopConfig',
+    'orders.apps.OrdersConfig',
+    'cart.apps.CartConfig',
 
 ]
 
@@ -85,6 +89,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
+                'cart.context_processors.cart',
+                'orders.context_processors.order_form',
                 "browser.context_processors.product_list",
                 'shop.context_processors.product_list',
             ],

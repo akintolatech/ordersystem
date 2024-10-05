@@ -8,6 +8,8 @@
     <title>Khalid Kitchen's {% block title %} {% endblock %}™</title>
     <link type="text/css" href="{% static 'styles/style.css' %}" rel="stylesheet" />
     <link type="text/css" href="{% static 'styles/prynav.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'styles/detail.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'styles/cart.css' %}" rel="stylesheet" />
     <!-- <script src="{% static 'js/jquery.js' %}"></script> -->
     <link type="image/x-icon" href="{% static 'img/est.ico' %}" rel="icon" />
 </head>
@@ -16,6 +18,7 @@
     <div id="header">
 
         <div class="header-wrap">
+
             <div style="display: flex; justify-content: space-between; align-items: center;">
 
                 <a href="{% url 'browser:legal' %}">
@@ -39,6 +42,39 @@
                 </a>
             </div> -->
 
+            <div class="app-auth">
+
+                <a href="{% url 'cart:cart_detail' %}">
+                    <button class="itm-btn" >
+                        <img src="{% static 'img/icons/carticon.svg' %}" />
+                        <p>
+                            Cart({% with total_items=cart|length %}{% if total_items > 0 %}{{ total_items }}{% elif not order %}0{% endif %}{% endwith %})
+                        </p>
+                    </button>
+                </a>
+
+                {% if request.user.is_authenticated %}
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button>
+                            <img src="{% static 'img/icons/accounticon.svg' %}" />
+                            <p>Log-out</p>
+                        </button>
+                    </form>
+                {% else %}
+
+                    <a href="{% url 'login' %}">
+                    <button>
+                        <img src="{% static 'img/icons/accounticon.svg' %}" />
+                        <p>Login</p>
+                    </button>
+                </a>
+                {% endif %}
+
+
+
+            </div>
+
             <a href="#" style="margin-inline:8px">
                 <div class="profile">
                     <img src="{% if request.user.profile.photo %} {{ request.user.profile.photo.url }} {% else %} {% static 'img/user.jpg' %} {% endif %}" />
@@ -57,7 +93,6 @@
     <div class="main">
 
 
-        <h2 style="margin-bottom: 0;">Welcome {{ request.user.first_name|default:request.user.username }}</h2>
 
         {% block content %}{% endblock %}
         <!-- profile  -->

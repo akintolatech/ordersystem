@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
-# from cart.forms import CartAddProductForm
+from cart.forms import CartAddProductForm
 from .models import Category, Product
 
 @login_required
@@ -26,9 +26,9 @@ def product_detail(request, id, slug):
     product = get_object_or_404(
         Product, id=id, slug=slug, available=True
     )
-    # cart_product_form = CartAddProductForm()
+    cart_product_form = CartAddProductForm()
     return render(
         request,
         'shop/product/detail.html',
-        {'product': product, }, #'cart_product_form': cart_product_form
+        {'product': product, 'cart_product_form': cart_product_form}, #'cart_product_form': cart_product_form
     )

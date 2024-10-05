@@ -5,11 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="186138d3-426b-4253-bab5-a0fc448ea2e3" name="Changes" comment="Shop and Cart Implementation">
-      <change afterPath="$PROJECT_DIR$/media/photos/akintolatech.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/products/2024/10/05/burgerimg_yUEoCTx_e2I2GgI_Ojlci0K.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/no_image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/registration/password_change_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/registration/password_change_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/cart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/context_processors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/templates/cart/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/context_processors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/templates/orders/order/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/templates/orders/order/created.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/abouticon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/accounticon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/add.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/add_to_cart.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/addcircle.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/carticon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/delete.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/devices.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/remove.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/solar.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/terminal.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/upgrade.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/verified.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/styles/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/templates/account/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ordersys/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordersys/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ordersys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordersys/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/templates/shop/product/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/shop/product/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/templates/shop/product/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/shop/templates/shop/product/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles/detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,17 +99,17 @@
     "Python.icon_maker.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/akintolatechnologies/PycharmProjects/ordersystem",
+    "last_opened_file_path": "/home/akintolatechnologies/PycharmProjects/ordersystem/static/img",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/img" />
+      <recent name="$PROJECT_DIR$/static/styles" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/shop" />
       <recent name="D:\Victor Workstation\Projects\Ordering System\ordersys\account\templates\account" />
-      <recent name="D:\Victor Workstation\Projects\Ordering System\ordersys\account\templates\registration" />
-      <recent name="D:\Victor Workstation\Projects\Ordering System\ordersys\static\styles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Victor Workstation\Projects\Ordering System\ordersys\account\migrations" />
@@ -258,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728152584205</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Shop and Cart Implementation">
+      <option name="closed" value="true" />
+      <created>1728153429362</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1728153429362</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
