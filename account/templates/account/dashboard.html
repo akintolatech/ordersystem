@@ -27,7 +27,15 @@
                     </div>
                 </a>
 
+                <form method="POST" action="{% url 'cart:cart_detail' %}">
+                    {% csrf_token %}
+                    <button class="itm-btn" style="background-color: white; color: black; margin-inline: 12px;">Cart({% with total_items=cart|length %}{% if total_items > 0 %}{{ total_items }}{% elif not order %}0{% endif %}{% endwith %})</button>
+                </form>
+    
+
             </div>
+
+
 
             <!-- <div class="search-box">
 
@@ -42,39 +50,7 @@
                 </a>
             </div> -->
 
-            <div class="app-auth">
-
-                <a href="{% url 'cart:cart_detail' %}">
-                    <button class="itm-btn" >
-                        <img src="{% static 'img/icons/carticon.svg' %}" />
-                        <p>
-                            Cart({% with total_items=cart|length %}{% if total_items > 0 %}{{ total_items }}{% elif not order %}0{% endif %}{% endwith %})
-                        </p>
-                    </button>
-                </a>
-
-                {% if request.user.is_authenticated %}
-                    <form method="POST" action="{% url 'logout' %}">
-                        {% csrf_token %}
-                        <button>
-                            <img src="{% static 'img/icons/accounticon.svg' %}" />
-                            <p>Log-out</p>
-                        </button>
-                    </form>
-                {% else %}
-
-                    <a href="{% url 'login' %}">
-                    <button>
-                        <img src="{% static 'img/icons/accounticon.svg' %}" />
-                        <p>Login</p>
-                    </button>
-                </a>
-                {% endif %}
-
-
-
-            </div>
-
+            
             <a href="#" style="margin-inline:8px">
                 <div class="profile">
                     <img src="{% if request.user.profile.photo %} {{ request.user.profile.photo.url }} {% else %} {% static 'img/user.jpg' %} {% endif %}" />
@@ -95,15 +71,20 @@
 
 
         {% block content %}{% endblock %}
+
         <!-- profile  -->
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <p><a href="{% url 'password_change' %}">Change password</a> | <a href="{% url 'edit' %}">Edit account</a></p>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-inline:12px;">
+            <h5><a href="{% url 'password_change' %}">Change password</a> | <a href="{% url 'edit' %}">Edit account</a></h5>
+            
+ 
             <form method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}
                 <button class="itm-btn" style="background-color: red; margin-inline: 12px;">Log out</button>
             </form>
 
+
         </div>
+
 
     </div>
 
