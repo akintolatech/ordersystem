@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from .models import Profile
+from .models import Profile, Legal
 
 from .forms import (
     UserRegistrationForm,
@@ -69,3 +69,16 @@ def edit(request):
             'profile_form': profile_form
         },
     )
+
+
+
+# def page_not_found(request, exception):
+#     return render(request, 'authenticator/error.html', status=404)
+
+
+
+def legal (request):
+    context = {
+        'terms': Legal.objects.all()
+    }
+    return render(request, 'account/legal.html', context)

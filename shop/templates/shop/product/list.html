@@ -8,12 +8,8 @@
 
 
 {% block content %}
+    <h3 style="margin: 0px;">Welcome {{ request.user.first_name|default:request.user.username }}</h3>
 
-
-    <h2 style="margin-bottom: 0;">Welcome {{ request.user.first_name|default:request.user.username }}</h2>
-
-
-    
     <div class="categories-container">
 
         <a href="{% url 'shop:product_list' %}">
@@ -58,11 +54,9 @@
 
 
                         <div class="icntext-container">
-                            <div class="icn-img" style="margin: 0;">
-                                <img src="{% static 'img/pay.svg' %}" />
-                            </div>
+
                             <div class="icn-text">
-                                <p class="formatted-price" >{{ product.price }}</p>
+                                <p class="formatted-price" > &#163; {{ product.price }}</p>
                             </div>
                         </div>
                     </div>

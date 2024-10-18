@@ -22,7 +22,7 @@
             <div style="display: flex; justify-content: space-between; align-items: center;">
 
                 <a href="{% url 'browser:legal' %}">
-                    <div class="site-id">
+                    <div class="site-id" style="margin-right: 12px;">
                         <img src="{% static 'img/est.svg' %}" />
                     </div>
                 </a>
@@ -32,7 +32,6 @@
                     <button class="itm-btn" style="background-color: white; color: black; margin-inline: 12px;">Cart({% with total_items=cart|length %}{% if total_items > 0 %}{{ total_items }}{% elif not order %}0{% endif %}{% endwith %})</button>
                 </form>
 
-                    
                 <form method="POST" action="{% url 'logout' %}">
                     {% csrf_token %}
                     <button class="itm-btn" style="background-color: red; margin-inline: 12px;">Log out</button>
@@ -43,7 +42,7 @@
 
             
             <a href="{% url 'edit' %}" style="margin-inline:8px">
-                <div class="profile">
+                <div class="profile" title="Accounts">
                     <img src="{% if request.user.profile.photo %} {{ request.user.profile.photo.url }} {% else %} {% static 'img/user.jpg' %} {% endif %}" />
                 </div>
             </a>
@@ -57,15 +56,13 @@
 
     <div class="main">
 
+        {% block content %}
 
-
-        {% block content %}{% endblock %}
-
-
-
+        {% endblock %}
 
     </div>
 
     <script src="{% static 'js/main.js' %}"></script>
+
 </body>
 </html>
