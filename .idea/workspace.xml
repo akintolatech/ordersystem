@@ -7,28 +7,7 @@
     <list default="true" id="186138d3-426b-4253-bab5-a0fc448ea2e3" name="Changes" comment="App Cleansing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/migrations/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/context_processors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/templates/browser/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/templates/browser/pages/detail-app.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/templates/browser/pages/detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browser/views.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ordersys/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordersys/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ordersys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordersys/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/auth.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -381,7 +360,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729243428724</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="App Cleansing">
+      <option name="closed" value="true" />
+      <created>1729415557665</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1729415557665</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
