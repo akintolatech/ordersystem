@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Successful</title>
+    <link type="text/css" href="{% static 'styles/style.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'styles/detail.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'styles/success.css' %}" rel="stylesheet" />
+    <link type="image/x-icon" href="{% static 'img/est.ico' %}" rel="icon" />
+</head>
+<body>
+
+
+    <div class="main">
+
+
+        <div class="center-box">
+            <center>
+                <div class="msg">
+                    <img src="{% static 'img/check.svg' %}" />
+                    <p>
+                        {{ success }}
+                    </p>
+                </div>
+
+
+                <a href="{% url 'authenticator:login' %}" ><button style="margin-bottom: 15px;">Track Application</button></a>
+                
+                <a href="{% url 'browser:index' %}">Continue browsing</a>
+            </center>
+        </div>
+
+
+
+
+
+    </div>
+
+
+</body>
+</html>

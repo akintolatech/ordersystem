@@ -12,6 +12,8 @@ urlpatterns = [
     path('terms/', views.legal, name='legal'),
     #Admin
     path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('delete_order_item/<int:order_item_id>', views.delete_order_item, name='delete_order_item'),
+    path('view_customer_order/<int:order_item_id>', views.view_customer_order, name='view_customer_order'),
 
 
 ]

@@ -1,0 +1,52 @@
+{% extends "admin_base.html" %}
+{% load static %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+
+    <h2>Customer Orders</h2>
+    <div>
+        <div class="user-profile">
+
+                    <!-- Categories -->
+                    <div class="user-func">
+                        <div class="icon-and-text">
+                            <div class="func-icon"><img src="{% static 'img/icons/verified.svg' %}"></div>
+                            <h4>Order Summary</h4>
+                        </div>
+                        <!-- <h4>(3)</h4> -->
+                    </div>
+
+                </div>
+        <div class="cart-summary-box">
+
+                  <ol>
+                    {% for item in cart %}
+                      <li>
+                        {{ item.quantity }}x {{ item.product.name }}
+                        <span> &#x20A6 {{ item.total_price }}</span>
+                      </li>
+                    {% endfor %}
+                  </ol>
+                  <h4>Total: &#x20A6 {{ cart.get_total_price }}</h4>
+
+                  <form method="post" action= "{% url 'orders:order_create' %}">
+                    {{ form.as_p }}
+                    <input type="text" value="{{ request.user.username }}" disabled/>
+                    <p><input type="submit" value="Place order"></p>
+                    {% csrf_token %}
+                  </form>
+
+                  <hr/>
+
+                  <a href="{% url 'shop:product_list' %}" >
+                      <button style="height:44px;">Continue shopping</button>
+                  </a>
+
+                   <!-- <a href="{% url 'orders:order_create' %}" >Checkout</a> -->
+
+                </div>
+    </div>
+
+{% endblock %}

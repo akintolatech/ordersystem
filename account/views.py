@@ -1,7 +1,9 @@
 from lib2to3.fixes.fix_input import context
 
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+
+from shop.models import Product
 from .models import Profile, Legal
 from orders.models import OrderItem
 
@@ -101,5 +103,25 @@ def admin_dashboard(request):
         context = {
             "all_orders": all_orders,
             "total_orders": all_orders.count()
+        }
+    )
+
+def delete_product(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    return redirect("admin_dashboard")
+
+def delete_order_item(request, order_item_id):
+    order_item = get_object_or_404(OrderItem, pk=order_item_id)
+    order_item.delete()
+    return redirect("admin_dashboard")
+
+def view_customer_order(request, order_item_id):
+    order_item = get_object_or_404(OrderItem, pk=order_item_id)
+    return render(
+        request,
+        "administrator/view_order.html",
+        {
+            "order_item": order_item
         }
     )
