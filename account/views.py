@@ -9,6 +9,12 @@ from .forms import (
 )
 
 
+from django.contrib.auth import views as auth_views
+from .forms import CustomAuthenticationForm
+
+class CustomLoginView(auth_views.LoginView):
+    authentication_form = CustomAuthenticationForm
+
 def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)

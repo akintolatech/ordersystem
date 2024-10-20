@@ -1,24 +1,22 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from .models import Profile
+from django.contrib.auth.forms import AuthenticationForm
 
 
-# class LoginForm(forms.Form):
-#     username = forms.CharField(
-#         label="",
-#         widget=forms.TextInput(attrs={'placeholder': 'Enter your username'})
-#     )
-#     password = forms.CharField(
-#         label="",
-#         widget=forms.PasswordInput(
-#             attrs={
-#                 'placeholder': 'Enter your password',
-#                 # 'maxlength': '7',
-#                 # 'pattern': r'\d{2}/\d{4}'
-#             }
-#         )
-#     )
-#
+
+class CustomAuthenticationForm(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': 'Enter your username',
+        "autocomplete": "off"
+        #'class': 'form-control',
+    }))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'placeholder': 'Enter your password',
+        "autocomplete": "off"
+        #'class': 'form-control',
+    }))
+
 
 class UserRegistrationForm(forms.ModelForm):
 
