@@ -9,6 +9,7 @@
     <link type="text/css" href="{% static 'styles/dashboards.css' %}" rel="stylesheet" />
     <link type="text/css" href="{% static 'styles/prynav.css' %}" rel="stylesheet" />
     <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     <link type="image/x-icon" href="{% static 'img/est.ico' %}" rel="icon" />
 </head>
 <body>
@@ -95,12 +96,11 @@
 <!--                    <p class="desc"><strong>5</strong> Apps <strong>120</strong> Views</p>-->
                     <div class="dashboard-icn-and-text">
                             <a href="tel:{{ client.password }}">
-                            <div class="dashboard-icn-box">
-                                <img src="{% static 'img/call-01.svg' %}" alt="" />
-                            </div>
-
+                                <div class="dashboard-icn-box">
+                                    <img src="{% static 'img/call-01.svg' %}" alt="" />
+                                </div>
                             </a>
-                            <p>{{ order.order.price }}</p>
+                            <p class="formatted-price">{{ order.price }}</p>
 
                     </div>
                     <div style="display:flex; align-items: center;">
