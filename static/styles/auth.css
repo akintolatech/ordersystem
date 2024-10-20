@@ -53,14 +53,14 @@ img {
 
 @media screen and (min-width: 760px) {
     #content {
-        width: 40%;
+        width: 30%;
     }
 
-    .long-form {
+    /* .long-form {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax value as needed */
-        gap: 10px; /* Space between grid items */
-    }
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+        gap: 10px; 
+    } */
 
 }
 
@@ -91,7 +91,9 @@ input[type="submit"] {
 
 
 ul {
-    display: none;
+    /* display: none; */
+    list-style-type: none;
+    padding: 0;
 }
 
 /* messages */
@@ -132,8 +134,8 @@ ul.messages li a.close {
     text-shadow:none;
 }
 
-.errorlist.nonfield ul li {
-    text-decoration: none;
+.errorlist {
+    font-size: small;
     color: red;
 }
 

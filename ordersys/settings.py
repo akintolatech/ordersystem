@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-import environ
 
 
 
@@ -52,7 +51,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'browser.apps.BrowserConfig',
     'shop.apps.ShopConfig',
     'orders.apps.OrdersConfig',
     'cart.apps.CartConfig',
@@ -82,10 +80,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
                 # app processors
                 'cart.context_processors.cart',
                 'orders.context_processors.order_form',
-                "browser.context_processors.product_list",
                 'shop.context_processors.product_list',
             ],
         },

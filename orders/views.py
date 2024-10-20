@@ -20,6 +20,8 @@ def order_create(request):
                     quantity=item['quantity'],
                 )
             # clear the cart
+            # Todo: Send email
+
             cart.clear()
             # launch asynchronous task
             # order_created.delay(order.id)

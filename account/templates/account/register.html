@@ -23,12 +23,13 @@
 
   <h1>Create an account</h1>
   <!-- <p>Please, sign up using the following form:</p> -->
-  <form method="post" style="">
-    <div class="long-form">
-        {{ user_form.as_p }}
-    </div>
+  <form method="post" >
+
+    {{ user_form.as_p }}
+
     {% csrf_token %}
     <p><input type="submit" value="Create my account"></p>
     <p>if you already have an account <a href="{% url 'login' %}">Login here</a></p>
   </form>
+  
 {% endblock %}

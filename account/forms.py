@@ -21,18 +21,49 @@ class LoginForm(forms.Form):
 
 
 class UserRegistrationForm(forms.ModelForm):
-    password = forms.CharField(
-        label='Password',
-        widget=forms.PasswordInput
-    )
-    password2 = forms.CharField(
-        label='Repeat password',
-        widget=forms.PasswordInput
-    )
 
     class Meta:
         model = get_user_model()
         fields = ['username', 'email']
+
+        widgets = {
+            'username': forms.TextInput(attrs={'placeholder': 'Enter your Username', "autocomplete": "off"}),
+            'email': forms.TextInput(attrs={'placeholder': 'Enter your Company Email', "autocomplete": "off"}),
+        }
+
+        # Remove help text for all fields by setting an empty dictionary
+        help_texts = {
+            'username': None,
+            # 'password': None,
+        }
+
+    phone = forms.CharField(
+        label='Phone',
+        widget=forms.TextInput (
+            attrs={
+                'placeholder': 'Enter a valid phone number',
+                'maxlength': '11',
+                # 'pattern': r'\d{2}/\d{4}'
+            }
+        )
+    )
+
+    password = forms.CharField(
+        label='Password',
+        widget=forms.PasswordInput(
+            attrs= {
+                "placeholder": "Enter a memorable Password"
+            }
+        )
+    )
+    password2 = forms.CharField(
+        label='Repeat password',
+        widget=forms.PasswordInput (
+            attrs={
+                "placeholder": "Repeat Password"
+            }
+        )
+    )
 
     def clean_password2(self):
         cd = self.cleaned_data
