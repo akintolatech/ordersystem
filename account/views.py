@@ -1,6 +1,9 @@
+from lib2to3.fixes.fix_input import context
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .models import Profile, Legal
+from orders.models import OrderItem
 
 from .forms import (
     UserRegistrationForm,
@@ -45,7 +48,7 @@ def register(request):
 def dashboard(request):
     return render(
         request,
-        "account/dashboard.html"
+        "account/admin_dashboard.html"
     )
 
 
@@ -88,3 +91,15 @@ def legal (request):
         'terms': Legal.objects.all()
     }
     return render(request, 'account/legal.html', context)
+
+def admin_dashboard(request):
+    all_orders = OrderItem.objects.all()
+
+    return render(
+        request,
+        "administrator/admin_dashboard.html",
+        context = {
+            "all_orders": all_orders,
+            "total_orders": all_orders.count()
+        }
+    )

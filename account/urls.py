@@ -10,5 +10,8 @@ urlpatterns = [
     path('edit/', views.edit, name='edit'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('terms/', views.legal, name='legal'),
+    #Admin
+    path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
+
 
 ]
