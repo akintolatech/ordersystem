@@ -31,7 +31,7 @@ class UserRegistrationForm(forms.ModelForm):
             'email': forms.TextInput(attrs={'placeholder': 'Enter your Company Email', "autocomplete": "off"}),
         }
 
-        # Remove help text for all fields by setting an empty dictionary
+        # Remove help text for indicated fields by setting an empty dictionary
         help_texts = {
             'username': None,
             # 'password': None,
