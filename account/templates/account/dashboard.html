@@ -36,11 +36,9 @@
                     {% csrf_token %}
                     <button class="itm-btn" style="background-color: red; margin-inline: 12px;">Log out</button>
                 </form>
-    
 
             </div>
 
-            
             <a href="{% url 'edit' %}" style="margin-inline:8px">
                 <div class="profile" title="Accounts">
                     <img src="{% if request.user.profile.photo %} {{ request.user.profile.photo.url }} {% else %} {% static 'img/user.jpg' %} {% endif %}" />
@@ -63,6 +61,5 @@
     </div>
 
     <script src="{% static 'js/main.js' %}"></script>
-
 </body>
 </html>
