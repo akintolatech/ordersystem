@@ -64,13 +64,40 @@ html, body {
     background-color: var(--darktheme);
     font-family: Segoe UI;
 
-    background: linear-gradient(145deg, #001f3f, #004080, #001f3f);
+    /* background: linear-gradient(145deg, #001f3f, #004080, #001f3f);
     background-size: 400% 400%;
-    animation: gradientMove 10s ease infinite;
+    animation: gradientMove 10s ease infinite; */
+
+    background: radial-gradient(circle at 50% 50%, #001f3f, #003366, #004080, #001f3f);
+    background-size: 200% 200%;
+    animation: warpGradient 15s ease-in-out infinite;
+
     overflow: hidden;
 }
 
-@keyframes gradientMove {
+body {
+    
+}
+
+@keyframes warpGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 50% 100%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    75% {
+      background-position: 50% 0%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+/* @keyframes gradientMove {
     0% {
       background-position: 0% 50%;
     }
@@ -80,7 +107,7 @@ html, body {
     100% {
       background-position: 0% 50%;
     }
-  }
+  } */
 
 
 :root{
@@ -320,11 +347,17 @@ input[type="search"] {
     /* height: 400px; */
     display: inline-block;
     padding: 10px;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 18px;
     box-sizing: border-box;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
     transition: all ease 200ms;
+
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: white;
 }
 
 .item-img-box {
