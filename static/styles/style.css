@@ -3,6 +3,8 @@
     --sec-color: grey;
     --dark: rgb(41, 29, 52);
     --rad: 10px;
+    --dark-bg-color: #3c2f41;
+    --darktheme: #040a46;
 }
 
 p::selection {
@@ -58,9 +60,27 @@ h4,h5,h6 {
 html, body {
     margin: 0;
     padding: 0;
-    background-color: rgb(243, 243, 243);
+    /* background-color: rgb(243, 243, 243); */
+    background-color: var(--darktheme);
     font-family: Segoe UI;
+
+    background: linear-gradient(145deg, #001f3f, #004080, #001f3f);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+    overflow: hidden;
 }
+
+@keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
 
 :root{
@@ -100,7 +120,15 @@ input[type="submit"] {
     top: 0;
     /* display: flex;
     align-items: center; */
-    background-color: white;
+    /* background-color: white; */
+    /* filter: opacity(0.5); */
+
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+    
 }
 
 .header-wrap {
